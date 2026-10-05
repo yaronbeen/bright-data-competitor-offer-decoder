@@ -6,7 +6,7 @@ Read the latest file in `/home/yaron/projects/bright-data-competitor-offer-decod
 
 ## Purpose & Context
 
-This Python 3.11+ CLI creates deterministic, cited offer worksheets for one operator-declared scenario. Offline analysis is the product; Web Unlocker API manifests and offline imports are optional ingestion helpers. Version 0.1.0 disables production live collection because final target attribution after provider-side redirects is unverified. Core publication is authorized after QA SHIP, security SHIP, unchanged prior brand SHIP, and independent source/exact-wheel execution PASS; see `/home/yaron/projects/bright-data-competitor-offer-decoder/VERIFICATION.md`. The public repository is `yaronbeen/bright-data-competitor-offer-decoder` per the explicit user naming requirement; package and CLI identity remain `competitor-offer-decoder`. The repository is independent, not officially owned or endorsed by Bright Data. The local path remains unchanged. Separate skills/README additions are not approved core release inputs.
+This Python 3.11+ CLI creates deterministic, cited offer worksheets for one operator-declared scenario. Offline analysis is the product; Web Unlocker API manifests and offline imports are optional ingestion helpers. Version 0.1.0 disables production live collection because final target attribution after provider-side redirects is unverified. Core publication is authorized after QA SHIP, security SHIP, unchanged prior brand SHIP, and independent source/exact-wheel execution PASS; see `/home/yaron/projects/bright-data-competitor-offer-decoder/VERIFICATION.md`. The public repository is `yaronbeen/bright-data-competitor-offer-decoder` per the explicit user naming requirement; package and CLI identity remain `competitor-offer-decoder`. The repository is independent, not officially owned or endorsed by Bright Data. The local path remains unchanged. The bundled `offer-clarity-wedge` Markdown skill and exact README section are separately approved after skeptic, automation, and brand SHIP results supplied by the user; the skill is not a new CLI command or automatically registered plugin.
 
 ## Architecture / Design
 
@@ -46,6 +46,7 @@ CLI failures must remain fixed structured JSON; validate object/list/member type
 | 2026-10-05 | Default provider timeout to 180 seconds | Long provider processing remains bounded and post-dispatch timeout remains completion-unknown. |
 | 2026-10-05 | Publish only the approved core to yaronbeen/competitor-offer-decoder | All core gates are clear; separately reviewed skills stay out, and live collection stays disabled. |
 | 2026-10-05 | Rename the owned repository to yaronbeen/bright-data-competitor-offer-decoder | Explicit user requirement to mention Bright Data in repository names supersedes the repository portion of the earlier neutral-name proposal. Package/CLI names and independent non-affiliation wording remain unchanged. |
+| 2026-10-05 | Publish the separately approved offer-clarity-wedge bundle and exact README snippet | Skeptic, automation, and brand reviewers all SHIP, including prefixed repository naming. Add portable Markdown only through a normal new commit; keep runtime, package/CLI, provider gates, and private artifacts unchanged. |
 
 ## Runbook / Operations
 

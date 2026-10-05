@@ -180,7 +180,7 @@ The exact wheel remains SHA-256 `bc41c17d48985535db98d66ccd455615ca47ceb1da6fd19
 
 On 2026-10-05 the release authorization supplied the final independent core results: **QA SHIP**, **security SHIP** on the fixed exchange-state candidate, and prior **brand SHIP** unchanged. The user initially authorized public publication to `yaronbeen/competitor-offer-decoder`, then explicitly corrected the repository name to `yaronbeen/bright-data-competitor-offer-decoder` without changing the package/CLI. These reviewer results are recorded from that authorization, not inferred from local tests or attributed to this release operator.
 
-Core publication gates are clear. Production live collection remains disabled; neither approval nor offline execution establishes live provider compatibility. New skills, skill examples, skill README snippets, and their validation/manifests remain outside this release pending separate independent review. Observed publication results follow below.
+Core publication gates are clear. Production live collection remains disabled; neither approval nor offline execution establishes live provider compatibility. Skills, examples, README snippets, and validation/manifests were excluded from the initial core release pending separate independent review; that separate approval is recorded below. Observed publication results follow below.
 
 ## Normal Commit Hook And Test-Only Adjustment
 
@@ -207,7 +207,7 @@ The earlier frozen-source archive retains the original test source and was not r
 - GitHub Actions run https://github.com/yaronbeen/bright-data-competitor-offer-decoder/actions/runs/37358477675 completed successfully for this commit. CPython 3.11.16: **175 passed in 5.88s**; CPython 3.12.14: **175 passed in 6.18s**. Both editable installations and test jobs succeeded; counts were checked in the actual job logs.
 - Local runtime/test traces show six loopback connects per full-suite execution, zero non-loopback runtime connections, and zero connects for the nine CLI cases. GitHub publication, cloning, and CI inspection necessarily use network access and are not included in that application-runtime zero-network claim.
 
-No live Bright Data request was made. Production live collection remains fail-closed; remote CI is not live provider compatibility evidence. The separately reviewed skills update remains uncommitted and unpublished.
+No live Bright Data request was made. Production live collection remains fail-closed; remote CI is not live provider compatibility evidence. The skills update was uncommitted and unpublished at the initial core-release checkpoint, before the later separate approval below.
 
 ## User-Required Repository Rename
 
@@ -217,4 +217,21 @@ GitHub authentication and source ownership were rechecked as `yaronbeen`, with r
 
 The old public URL returned HTTP 301 to the exact new URL. Local post-correction suite: **175 passed in 8.67s**. Git comparison against pre-rename commit `43a1a535310cd315292fbedd1f6604f3efee1715` confirms no changes to runtime, tests, fixtures, package configuration, dependency lock, manifest, or CI workflow. Updated README SHA-256: `9f82a3a30f5fd45be2fa739f1753c087088efd27b99491727465369f94278964`; approved wheel SHA-256 remains `bc41c17d48985535db98d66ccd455615ca47ceb1da6fd19c9babe050e454c7e7`.
 
-Current public documentation links use the renamed repository, and the append-only decision log records the override. Historical initial-authorization slug references remain historical, not current instructions. Independent/non-affiliation wording is preserved, including that this is not an official Bright Data repository. Pending skills and their README snippets/manifests remain excluded. Fresh public-clone and CI results for the documentation-only rename commit must be observed before reporting its final hash.
+Current public documentation links use the renamed repository, and the append-only decision log records the override. Historical initial-authorization slug references remain historical, not current instructions. Independent/non-affiliation wording is preserved, including that this is not an official Bright Data repository. Skills and their README snippets/manifests were excluded from the rename-only commit. That commit, `195cd9ea273c1d79fafbc7a6db63465b56f3895e`, was verified with a fresh unauthenticated clone, 175 tests, nine offline CLI cases, byte-identical goldens, and 175 passing tests each on Python 3.11/3.12 CI.
+
+## Separately Approved Skill And README
+
+The user supplied all three independent skill/README reviewer results: **skeptic SHIP**, **automation SHIP**, and **brand SHIP**, including Bright Data-prefixed repository names. The Offer publisher owns README integration; no separate documentation worker is editing this repository. This authorization supersedes the earlier skill-exclusion checkpoints, not the production fail-closed gate or package/CLI identity.
+
+The approved five-file inventory is `/home/yaron/projects/bright-data-competitor-offer-decoder/docs/skills/review-manifest.txt`. Its skill, checked example, historical validation, manifest, and README snippet are retained unchanged. The exact snippet from `/home/yaron/projects/bright-data-competitor-offer-decoder/docs/skill-readme-section.md` is integrated after the offline quickstart in `/home/yaron/projects/bright-data-competitor-offer-decoder/README.md`, whose public URL remains `https://github.com/yaronbeen/bright-data-competitor-offer-decoder`.
+
+This is a portable Markdown instruction file with a manual checked example, not a new CLI command, automatically registered plugin, model, dependency, or live provider verification. Independent/no-endorsement wording and the provenance caveat remain intact. The validation document's then-pending triple-review statement is historical; current approval is the user-supplied three-SHIP authorization recorded here. Publish only this reviewed bundle and synchronized repository documentation, through normal hooks and a new commit, without private logs, generated reports, environments, or frozen distribution artifacts.
+
+Observed pre-publication checks for the skill follow-up:
+
+- Existing full suite: **175 passed in 7.47s**; JUnit confirms zero failures, errors, or skips. No tests or runtime files changed.
+- Network-denied offline replay: five CLI invocations passed (demo, zero-write dry run, collision preservation, unsupported price, hostile source), three byte-identical goldens, three recomputed source hashes, and five exact unique evidence refs. Zero network attempts or provider requests.
+- The checked skill memo's five exact quotations, three source locators/hashes, annual amounts, inclusion/scenario states, own-clarity question, and provenance notice match the newly generated report. Unsupported North pricing remains null; hostile source commands are not followed. This is a manual instruction/sample exercise plus mechanical consistency checks, not an automated skill runner or model evaluation.
+- All five approved file hashes remain unchanged. The README contains the exact snippet once and has no other content changes; updated SHA-256 `35948a7cf9e6b845b73327dba9810249c54b23a9c0ed6450f520dd5ac5b24d0c`.
+- Front matter, five-entry manifest, ten reviewed-bundle relative links, and four integrated README relative links pass. Package/CLI remains `competitor-offer-decoder 0.1.0`.
+- Local test traces show only the six existing loopback test connections; skill CLI traces show no connects. No non-loopback runtime connection occurred. Private replay reports/logs remain outside the repository and are not staging inputs.

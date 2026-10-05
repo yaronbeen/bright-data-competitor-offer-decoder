@@ -1,0 +1,5 @@
+skills/offer-clarity-wedge/SKILL.md
+docs/skills/offer-clarity-wedge-example.md
+docs/skills/validation.md
+docs/skills/review-manifest.txt
+docs/skill-readme-section.md
