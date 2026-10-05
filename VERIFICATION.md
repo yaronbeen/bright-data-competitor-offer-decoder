@@ -180,7 +180,7 @@ The exact wheel remains SHA-256 `bc41c17d48985535db98d66ccd455615ca47ceb1da6fd19
 
 On 2026-10-05 the release authorization supplied the final independent core results: **QA SHIP**, **security SHIP** on the fixed exchange-state candidate, and prior **brand SHIP** unchanged. The user authorized public publication to `yaronbeen/competitor-offer-decoder`. These reviewer results are recorded from that authorization, not inferred from local tests or attributed to this release operator.
 
-Core publication gates are clear. Production live collection remains disabled; neither approval nor offline execution establishes live provider compatibility. New skills, skill examples, skill README snippets, and their validation/manifests remain outside this release pending separate independent review. Repository creation, push, public clean-clone verification, and remote CI results will be recorded after they occur.
+Core publication gates are clear. Production live collection remains disabled; neither approval nor offline execution establishes live provider compatibility. New skills, skill examples, skill README snippets, and their validation/manifests remain outside this release pending separate independent review. Observed publication results follow below.
 
 ## Normal Commit Hook And Test-Only Adjustment
 
@@ -193,4 +193,18 @@ As explicitly authorized for this release, only those two test URL expressions c
 - Source suite after the adjustment: **175 passed in 11.09s**, zero failures/errors/skips.
 - Approved wheel SHA-256 remains `bc41c17d48985535db98d66ccd455615ca47ceb1da6fd19c9babe050e454c7e7`; runtime CLI remains `f905c54d96b63b9563a0d3bea1c0411d3c5889472a207490ea5c2bee66283ff1`.
 
-The earlier frozen-source archive retains the original test source and was not rebuilt or published. Its historical byte-match evidence describes the pre-adjustment snapshot, not the current test source representation. The approved wheel contains no tests and remains unchanged. The normal hook must pass before publication.
+The earlier frozen-source archive retains the original test source and was not rebuilt or published. Its historical byte-match evidence describes the pre-adjustment snapshot, not the current test source representation. The approved wheel contains no tests and remains unchanged. The normal hook passed on retry, creating the release commit without bypasses or amendments.
+
+## Public Core Release
+
+- Public repository: https://github.com/yaronbeen/competitor-offer-decoder; default branch `main`, visibility `PUBLIC`.
+- Initial core release commit: `40974d8adbf6c74d4e3a8bb2597085c3f6ff52b4`; package and CLI version `0.1.0`.
+- The committed tree contains exactly 42 reviewed core/synchronized documentation files. Pending skills, skill README snippets, validation/manifests, environments, caches, build outputs, private inputs, receipts, approvals, and raw generated evidence are absent.
+- A fresh HTTPS clone succeeded with GitHub tokens removed, global/system Git configuration disabled for that clone command, credential helpers and HTTP authorization headers empty, and terminal/askpass authentication prohibited. Clone commit matched the release commit.
+- Clean-clone suite: **175 passed in 12.59s**, JUnit confirms exactly 175 cases with zero failures/errors/skips.
+- Nine clean-clone CLI cases passed: version, demo, collision preservation, deterministic overwrite, zero-write analysis dry run, safe invalid flags, safe missing input, offline provider import, and zero-request collection plan. All three output artifacts byte-match the checked-in goldens; the clone worktree remains clean.
+- All seven cloned runtime modules byte-match the unchanged approved wheel. Public README SHA-256: `600d93a44f3e2dc9cbdb9a73c27431e5cced0bda39bfd62a7d0c4f54821c3b9b`.
+- GitHub Actions run https://github.com/yaronbeen/competitor-offer-decoder/actions/runs/37358477675 completed successfully for this commit. CPython 3.11.16: **175 passed in 5.88s**; CPython 3.12.14: **175 passed in 6.18s**. Both editable installations and test jobs succeeded; counts were checked in the actual job logs.
+- Local runtime/test traces show six loopback connects per full-suite execution, zero non-loopback runtime connections, and zero connects for the nine CLI cases. GitHub publication, cloning, and CI inspection necessarily use network access and are not included in that application-runtime zero-network claim.
+
+No live Bright Data request was made. Production live collection remains fail-closed; remote CI is not live provider compatibility evidence. The separately reviewed skills update remains uncommitted and unpublished.

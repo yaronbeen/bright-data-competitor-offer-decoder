@@ -6,13 +6,13 @@
 
 ## P1 (This Week)
 
-- Validate the GitHub Actions matrix after publication authorization; local verification currently covers the available interpreter only.
-- Validate fixture data-file locations across Python 3.11 and 3.12 in remote CI after publication authorization.
+- Validate installed wheel fixture data-file locations across Python 3.11 and 3.12 in a separate packaging check; the successful remote CI verifies editable installation and pytest, not wheel data-file placement.
 - Keep the separately reviewed skills and README additions unpublished until their independent review is approved; they are not part of the core release.
 
 ## P2 (When Convenient)
 
 - Consider a public JSON Schema only if it can exactly preserve the stricter application constraints and error behavior.
+- Refresh immutable CI action pins in a separately reviewed update to remove the hosted runner's Node.js 20 deprecation warning; current Python 3.11/3.12 jobs pass under its Node.js 24 override.
 
 ## P3 (Nice To Have)
 
@@ -20,6 +20,7 @@
 
 ## Resolved Items
 
+- 2026-10-05: Published the approved 42-file core to public `yaronbeen/competitor-offer-decoder` on `main`; unauthenticated clean clone passed 175 tests, nine offline CLI cases, and three byte-identical goldens. GitHub Actions run `37358477675` passed 175 tests each on Python 3.11 and 3.12. Pending skills and generated private evidence remain excluded.
 - 2026-10-05: Core publication authorized for public `yaronbeen/competitor-offer-decoder` after final QA SHIP, security SHIP, unchanged prior brand SHIP, and independent corrected-source/exact-wheel execution PASS (175 tests each plus the two targeted regressions each). No live provider compatibility claim or request is authorized by these results.
 - 2026-10-05: Independently reproduced post-exchange original loss fixed by recording exchange state before metadata inspection, retaining possibly-original temporaries on verification/reverse failure, and entering identity-checked rollback before commit verification completes. Tests and goldens unchanged.
 - 2026-10-05: URL validator rejects empty userinfo delimiters; rollback cleanup is best-effort per reservation with retained artifacts and a structured recovery-required error.
