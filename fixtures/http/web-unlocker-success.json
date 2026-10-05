@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "provenance": "synthetic_fixture",
+  "provider": "Bright Data Web Unlocker API",
+  "note": "Invented provider exchange for deterministic offline transport tests; not a captured provider response.",
+  "manifest": {
+    "schema_version": "1.0",
+    "project": "competitor-offer-decoder",
+    "jobs": [
+      {
+        "id": "web_1",
+        "kind": "web_page",
+        "role": "offer_page",
+        "company_id": "vendor",
+        "source_id": "vendor_offer",
+        "url": "https://pricing.vendor.com/team"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {},
+    "body": "## Team\n\nUSD 10 per user/month, billed annually."
+  }
+}

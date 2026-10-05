@@ -1,0 +1,8 @@
+include LICENSE
+include README.md
+include VERIFICATION.md
+include requirements-dev.lock
+recursive-include fixtures *.json *.md *.csv
+recursive-include tests *.py
+recursive-exclude * __pycache__
+global-exclude *.py[cod]

@@ -1,0 +1,38 @@
+# Learnings
+
+- Parsed credentials can be empty even when raw URL authority contains `@`; reject the delimiter in raw `netloc` instead of testing parsed username/password truthiness.
+- Rollback should contain all failures at the per-reservation boundary, preserve remaining recovery copies, and continue attempting restoration for other destinations.
+
+- Markdown heading markers must remain in imported/live source library text, while analysis creates heading blocks whose normalized text omits the markers for exact plan matching.
+- Dollar prices use `$10`, while ISO-code prices use `USD 10`; accepting a shared mandatory space breaks the documented grammar.
+- Monthly equivalents must remain visibly separate from payment cadence. An annually billed monthly rate can have a monthly comparison value without offering monthly payment.
+- A lower base amount can fail the operator's declared inclusion check. Rows therefore remain unranked and cross-currency values are never compared.
+- Bright Data Web Unlocker response handling is intentionally pinned to raw UTF-8 Markdown. An apparent JSON response envelope is a contract mismatch rather than an undocumented fallback.
+- Fixture domains are valid offline evidence but are explicitly rejected as live targets.
+- Passing a custom `HTTPRedirectHandler` instance to `urllib.request.build_opener` did not suppress the default handler early enough; a lower handler order is required and must be proven against 301, 302, 303, 307, and 308 responses.
+- Current Bright Data Web Unlocker documentation does not expose a verified provider-side target redirect control or final-target URL. Without attribution metadata, production collection must fail before dispatch rather than label returned content with the requested URL.
+- A post-dispatch socket timeout must retain a distinct typed signal so the receipt reports `completion_unknown`, not a safe-to-retry generic failure.
+- Retained-record allowances are enforced incrementally before each potential paid call, allowing a failed/empty first job without incorrectly consuming retention capacity.
+- A report can contain useful qualified competitor rows while still being `needs_review` because the operator's own required inclusion remains unresolved; report status and row decisions are intentionally independent.
+- Explicit contradictions such as a different unit fail declared checks, while absent/ambiguous information remains unknown. Both keep scenario arithmetic null when unsupported.
+- Receipt paths must be claimed, not merely checked: an exclusive exact-path placeholder plus sidecar lock closes the pre-request collision window while inode checks avoid deleting another process's replacement.
+- Source-library extras must not influence selected-plan status, counts, or default dates. They remain visible as classified `unreferenced_source` inputs.
+- “No retries” must be scoped to the application: the client submits each planned job once, while the provider may internally retry work within that single API request.
+- `bright_data_transport` is scoped to the current in-memory production transport invocation. On export/import it must become `operator_claimed_bright_data`; matching receipts remain caller-editable and are not authentication.
+- Without trademark permission, public repository and distribution names remain brand-neutral even when optional integration documentation uses the official product name.
+- Provenance cannot be inferred from the normalizer call site. Injected transports are test infrastructure and must be labeled `synthetic_fixture`; only the designated production transport may assign the invocation-local `bright_data_transport` marker.
+- A dry-run plan is informative, not “complete”: it should expose non-secret method/endpoint/request settings while explicitly saying that API key and zone are omitted.
+- URL safety must sit below every ingestion path. Validating only live manifests leaves direct analysis and appended libraries able to persist query secrets into JSON, Markdown, and CSV.
+- Existence checks and temporary-file renames are not enough for no-clobber semantics. Reservations retain the expected destination inode and verify it immediately before and after replacement; deterministic tests must use a pre-created attacker inode to avoid filesystem inode reuse.
+- A pre-commit inode check still leaves a syscall-boundary race. Linux `RENAME_EXCHANGE` permits atomic swap, inspection of the displaced inode, and rollback when a racer replaced the destination.
+- A failed declared check does not make the rest of a row ready. Readiness must independently enumerate unresolved price, billing, inclusion, scope, and selected-source evidence.
+- Strict total-call and per-role caps do not imply a company cap. `company_id` must be counted independently, including deterministic fallback identities.
+- CLI safety requires type checks before convenience accessors such as `.get`; exception catchers cannot sanitize an `AttributeError` that was never classified.
+- Multiple analysis outputs need a staged exchange phase and reverse-order rollback; committing files independently can leave a mixed-generation report set on a later failure.
+- Multi-output finalization must retain displaced originals until all per-output finalizers succeed. Recovery copies are prepared before deleting backups so a later cleanup failure can restore the full old set.
+- URL parsers expose decoded semantic fields unevenly. Reject percent escapes anywhere in an HTTPS authority before inspecting username/password/hostname so encoded delimiters cannot be interpreted differently downstream.
+- Provider provenance is a trust-boundary field: ordinary analysis input cannot assert it. A persisted adapter library needs a successful receipt job matching source identity, role, and URL; receipt structure is still not a cryptographic signature.
+- Rollback uncertainty is independent from discoverable recovery paths; report `recovery_required` with an explicit uncertainty flag even if filesystem errors prevent confirming a path.
+- Independent execution evidence can append a corrected-candidate GREEN verdict while preserving the rejected candidate's RED evidence. Release identity must use the corrected artifact hash, not the earlier baseline verdict.
+- Core release approval and separate skills/documentation approval are distinct. Explicit staging must exclude pending skills and generated private verification artifacts even when they coexist in the workspace.
+- A normal secret-scan hook can reject synthetic credential-shaped URL literals. When authorized, construct the same test URLs at runtime and prove value/AST equivalence; preserve assertions and runtime code, rerun the suite, and commit through the unchanged hook.
