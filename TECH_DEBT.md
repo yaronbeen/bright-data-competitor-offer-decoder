@@ -20,6 +20,7 @@
 
 ## Resolved Items
 
+- 2026-10-05: Renamed the existing owned repository in place to `yaronbeen/bright-data-competitor-offer-decoder` per the explicit user naming correction. Repository ID `1406241544`, public visibility, `main`, history, and prior CI runs are preserved; no duplicate or deletion. Origin and current public links are updated. Package/CLI names, runtime, and independent non-affiliation wording remain unchanged.
 - 2026-10-05: Published the approved 42-file core to public `yaronbeen/competitor-offer-decoder` on `main`; unauthenticated clean clone passed 175 tests, nine offline CLI cases, and three byte-identical goldens. GitHub Actions run `37358477675` passed 175 tests each on Python 3.11 and 3.12. Pending skills and generated private evidence remain excluded.
 - 2026-10-05: Core publication authorized for public `yaronbeen/competitor-offer-decoder` after final QA SHIP, security SHIP, unchanged prior brand SHIP, and independent corrected-source/exact-wheel execution PASS (175 tests each plus the two targeted regressions each). No live provider compatibility claim or request is authorized by these results.
 - 2026-10-05: Independently reproduced post-exchange original loss fixed by recording exchange state before metadata inspection, retaining possibly-original temporaries on verification/reverse failure, and entering identity-checked rollback before commit verification completes. Tests and goldens unchanged.

@@ -19,7 +19,7 @@
 - Source-library extras must not influence selected-plan status, counts, or default dates. They remain visible as classified `unreferenced_source` inputs.
 - “No retries” must be scoped to the application: the client submits each planned job once, while the provider may internally retry work within that single API request.
 - `bright_data_transport` is scoped to the current in-memory production transport invocation. On export/import it must become `operator_claimed_bright_data`; matching receipts remain caller-editable and are not authentication.
-- Without trademark permission, public repository and distribution names remain brand-neutral even when optional integration documentation uses the official product name.
+- Repository naming and package/CLI naming are separate requirements. The user's explicit requirement puts `bright-data` in the public repository name; package/CLI identity remains neutral. A descriptive repository name does not establish trademark permission, official provider ownership, or affiliation; preserve the independent non-affiliation disclosure.
 - Provenance cannot be inferred from the normalizer call site. Injected transports are test infrastructure and must be labeled `synthetic_fixture`; only the designated production transport may assign the invocation-local `bright_data_transport` marker.
 - A dry-run plan is informative, not “complete”: it should expose non-secret method/endpoint/request settings while explicitly saying that API key and zone are omitted.
 - URL safety must sit below every ingestion path. Validating only live manifests leaves direct analysis and appended libraries able to persist query secrets into JSON, Markdown, and CSV.

@@ -1,6 +1,6 @@
 # Competitor Offer Decoder
 
-Public repository: [yaronbeen/competitor-offer-decoder](https://github.com/yaronbeen/competitor-offer-decoder). Distribution name: `competitor-offer-decoder`. The existing local working directory retains its historical name only to avoid disrupting the reviewed workspace. No trademark permission or affiliation is implied.
+Public repository: [yaronbeen/bright-data-competitor-offer-decoder](https://github.com/yaronbeen/bright-data-competitor-offer-decoder). Package and CLI name remain `competitor-offer-decoder`. This is an independent project, not an official Bright Data repository. No trademark permission or affiliation is implied.
 
 **The cheapest headline price may not buy the thing you need.**
 

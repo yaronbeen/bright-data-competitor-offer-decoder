@@ -6,7 +6,7 @@ Date: 2026-10-05.
 
 The user authorized public core publication to `yaronbeen/competitor-offer-decoder`. Final reviewer results supplied with that authorization are QA SHIP, security SHIP on the corrected exchange-state candidate, and unchanged prior brand SHIP. No further core re-review is pending.
 
-The approved core is now public at https://github.com/yaronbeen/competitor-offer-decoder on `main`, version `0.1.0`. Initial release commit: `40974d8adbf6c74d4e3a8bb2597085c3f6ff52b4`.
+The approved core is public at https://github.com/yaronbeen/bright-data-competitor-offer-decoder on `main`, version `0.1.0`. The initial neutral slug was subsequently renamed in place per the explicit user correction; see `/home/yaron/projects/bright-data-competitor-offer-decoder/handover/handover-005.md`. Initial release commit: `40974d8adbf6c74d4e3a8bb2597085c3f6ff52b4`.
 
 Independent evidence at `/home/yaron/.claude/data/brightdata-drafts/2026-10-05-offer-independent-release-verification.md` preserves the rejected candidate's RED results and appends corrected-candidate GREEN: 175 source tests, 175 clean installed-wheel tests, two independent regression cases against each, 19 installed CLI cases, and three goldens. Zero external connections or provider requests occurred.
 
@@ -26,7 +26,7 @@ The normal hook rejected only the two known synthetic URI literals, with zero ve
 
 Repository creation and push succeeded. Public/default-branch/version/commit were verified. A credentials-disabled HTTPS clone passed 175 tests in 12.59s and nine CLI cases; all three goldens byte-match, all seven runtime modules match the approved wheel, and its worktree is clean. Runtime/test traces show no non-loopback connections; direct CLI cases show no connects.
 
-GitHub Actions run https://github.com/yaronbeen/competitor-offer-decoder/actions/runs/37358477675 passed for the initial core commit: Python 3.11.16 has 175 passes in 5.88s; Python 3.12.14 has 175 passes in 6.18s. Actual job logs were checked. This release-record follow-up changes documentation only; reverify the resulting public `main` and its CI before reporting the final branch hash.
+GitHub Actions run https://github.com/yaronbeen/bright-data-competitor-offer-decoder/actions/runs/37358477675 passed for the initial core commit: Python 3.11.16 has 175 passes in 5.88s; Python 3.12.14 has 175 passes in 6.18s. Actual job logs were checked. This release-record follow-up changes documentation only; reverify the resulting public `main` and its CI before reporting the final branch hash.
 
 ## Limits And Next Work
 

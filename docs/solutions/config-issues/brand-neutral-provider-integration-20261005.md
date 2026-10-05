@@ -1,5 +1,7 @@
 # Brand-Neutral Provider Integration
 
+Repository naming was superseded on 2026-10-05 by the explicit user requirement to mention Bright Data in repository names. The current repository is `yaronbeen/bright-data-competitor-offer-decoder`; package/CLI identity remains `competitor-offer-decoder`. The earlier neutral repository proposal below is historical, not a current naming instruction. Preserve independent non-affiliation wording; the repository name is not a claim of official provider ownership.
+
 ## Problem
 
 The proposed public distribution used a provider trademark even though no trademark permission was established. Integration documentation also mixed product names, omitted provider-visible request settings from dry runs, and described retry/provenance boundaries too broadly.
