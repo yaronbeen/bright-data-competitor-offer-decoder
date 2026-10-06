@@ -305,7 +305,7 @@ def test_provenance_claim_limit_is_explicit_in_json_markdown_and_csv():
 
 def test_public_distribution_and_documentation_are_brand_neutral_and_current():
     pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    readme = (ROOT / "docs" / "technical-guide.md").read_text(encoding="utf-8")
     assert 'name = "competitor-offer-decoder"' in pyproject
     assert 'name = "bright-data-competitor-offer-decoder"' not in pyproject
     assert "Bright Data Web Unlocker API" in readme
