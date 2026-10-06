@@ -1,6 +1,6 @@
 # Handover 008 - Skills-Only Conversion And Release
 
-Dates: 2026-10-06 conversion; 2026-10-07 publication authorization and preparation. Publication status below distinguishes observed checks from pending actions.
+Dates: 2026-10-06 conversion; 2026-10-07 publication and verification. The release checks below record observed results for the published product commit.
 
 ## Current Product
 
@@ -30,8 +30,27 @@ No source excerpts, prices, datasets, receipts, credentials, private reports, or
 
 The user reports three final reviews APPROVE and the targeted exact fee-clause review SHIP, and explicitly authorizes commit, push to main, and an About description of Bright Data collection followed by scenario offer comparison for this repository only. These are user-supplied review verdicts, not newly run reviews. Earlier pending-review notes in the external manifest describe the historical baseline and are superseded by this authorization. Historical application reviews/tests do not validate the rewritten skill.
 
-## Publication Status
+## Publication Verification
 
 Target: https://github.com/yaronbeen/bright-data-competitor-offer-decoder, existing PUBLIC repository, default branch main. Pre-publication remote main and local HEAD both equal `cac211904c854a3448a32fd7023d53833595cd7f`.
 
-Commit, push, About update, and anonymous public-tree/document/hash/link checks are pending at this preparation step. Use normal TruffleHog and Git LFS hooks unchanged; do not bypass hooks, amend, force-push, or resurrect retired tests if a hook blocks publication. Record actual public results here after observing them.
+Published product commit: `9be315316eed74d605174aef3f3bb624c6e9b460`, subject `Publish Bright Data skills-only offer comparison`, parent `cac211904c854a3448a32fd7023d53833595cd7f`. Normal commit and fast-forward push succeeded with the existing TruffleHog and Git LFS hooks configured and unchanged. No hook bypass, amend, force-push, global-hook edit, or other-repository publication occurred.
+
+- Commit scope: 36 authorized tracked removals, six modified documents, one added handover; 43 changed paths. The published tree has exactly 16 files, including retained historical notes. No Python package, dependency file, tests, workflow, mock dataset, synthetic example, or retired CLI release guide remains in the current tree. Retained Git history is not a product demonstration.
+- About was updated and read back: `Collect pricing and terms through Bright Data, then compare offer base costs, commitments, and unknowns for one buyer scenario.` It does not advertise an application or optional Bright Data integration.
+- Anonymous HTTP GET verification returned 200 for repository metadata, the main ref, commit, and explicit Git tree `1718efd1dc96c219a3a408ff79f5b912c90dc7f6`. Visibility was public, default branch main, and every remote file path/blob matched local HEAD; the tree was not truncated.
+- The three anonymous main-branch raw product documents returned HTTP 200 and matched the approved SHA-256 values below. README remains 220 words. The exact observed-fee clause, missing paid prices staying unknown rather than zero, unresolved ISO currency, partial numeric comparison, and no invented all-in total were checked in the served bytes.
+- All 11 product Markdown link instances were checked via seven unique HTTP-200 targets, including five local-link instances. The supported-Scraper documentation URL redirects to `https://docs.brightdata.com/products/scrapers/overview`, which returned 200. No target was substituted in the approved documents.
+- Local main HEAD, origin/main, the live remote main ref, and the anonymous API main ref all equaled the published product commit above; the worktree and index were clean at that verification point.
+
+Approved product SHA-256 values, verified from anonymous public bytes and local files:
+
+```text
+c2e81f14f82e99f5cd38224a6784a83b444e012091dbe88ad01b5d96d0af7f35  /home/yaron/projects/bright-data-competitor-offer-decoder/README.md
+76595ade2d3b742b194869d38b239acf085f35494193ca4fb47cbbd9e24fd491  /home/yaron/projects/bright-data-competitor-offer-decoder/skills/offer-clarity-wedge/SKILL.md
+38d83e63e2b88947d883340fa1416db70f4816504311859b77869ba5e9df7658  /home/yaron/projects/bright-data-competitor-offer-decoder/docs/technical-guide.md
+```
+
+The first anonymous checker invocation stopped on its own incorrect comparison of a commit-addressed tree response ID with the Git tree ID. Resolving the commit's tree first corrected the checker; the full subsequent anonymous audit passed. No product bytes changed to satisfy that check, and no checker/helper file was created or edited.
+
+This verification-record commit changes only this handover and does not claim its own eventual commit hash. Verify main synchronization and public bytes again after pushing the note. Known PARTIAL business evidence remains as stated above; no old pytest/wheel run, replacement CI, new paid collection, or unvalidated business-branch success is claimed.
