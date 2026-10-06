@@ -16,7 +16,7 @@ Competitor Offer Decoder turns your offer, three competitors, and one customer s
 
 ## Try It Offline (10 Seconds)
 
-[Bright Data](https://brightdata.com) integration is optional; the demo runs offline. Requires Python 3.11 or newer on Linux.
+Bright Data Web Unlocker API is the intended collection layer for real offer and terms pages. The synthetic demo below is only a quick way to try the worksheet; it makes no network request. Requires Python 3.11 or newer on Linux.
 
 ```bash
 python3 -m competitor_offer_decoder --version
@@ -104,9 +104,9 @@ Only offer/terms sources referenced by selected plans drive `as_of`, analyzed co
 
 A negative example such as `From USD 10 per user/month, billed annually.` produces `unsupported_or_ambiguous_price`, null scenario amounts, an explicit `Observed rate: unknown`, and an exact cited unsupported candidate. It is not silently converted to `10.00`.
 
-## Offline Provider Import
+## From Bright Data Collection To Worksheet
 
-An already authorized **[Bright Data](https://brightdata.com) Web Unlocker API** Markdown export can be normalized without HTTP:
+Use the **[Bright Data](https://brightdata.com) Web Unlocker API** or scraping MCP to collect the selected offer and terms pages. Live collection through this CLI is currently disabled while redirect attribution is unresolved. To use collected pages now, save each page's collected content as Markdown, then normalize it into a source library without HTTP:
 
 ```bash
 python3 -m competitor_offer_decoder import-provider fixtures/provider-page.md \
@@ -117,11 +117,11 @@ python3 -m competitor_offer_decoder import-provider fixtures/provider-page.md \
   --out /tmp/vendor.library.json
 ```
 
-The resulting source is labeled `operator_supplied`; the command does not certify where the file came from. Add it explicitly with `analyze ... --sources /tmp/vendor.library.json`. Duplicate source IDs are rejected.
+The import command accepts Markdown page content, not arbitrary MCP JSON. It creates a source-library JSON file labeled `operator_supplied`; it does not certify where the content came from. Add that library explicitly with `analyze ... --sources /tmp/vendor.library.json`. A JSON file already in this tool's source-library format can also be supplied with `--sources`; raw collected-data JSON is not a supported import format. Duplicate source IDs are rejected.
 
-## [Bright Data](https://brightdata.com) Integration (Optional)
+## Bright Data Web Unlocker API Collection
 
-Manifest planning and the **[Bright Data](https://brightdata.com) Web Unlocker API** adapter are included, but production live collection is disabled in version 0.1.0: current official documentation provides no verified request option to disable target-site redirects and no response field that identifies the final target URL, so the transport fails closed before dispatch. Offline import and injected local transports remain usable.
+The intended workflow is Bright Data collection of offer and terms pages, followed by this tool's deterministic, cited cost-and-inclusion worksheet. The **[Bright Data](https://brightdata.com) Web Unlocker API** manifest planner and adapter are included, but production live collection is disabled in version 0.1.0: current official documentation provides no verified request option to disable target-site redirects and no response field that identifies the final target URL, so the production transport fails closed before dispatch. Collect with Web Unlocker or a scraping MCP, then use the Markdown import workflow above. The synthetic offline demo is only a quick try, not the real collection workflow.
 
 Plan first — no credential read, no request:
 
