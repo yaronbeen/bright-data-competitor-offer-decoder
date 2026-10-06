@@ -16,7 +16,7 @@ Competitor Offer Decoder turns your offer, three competitors, and one customer s
 
 ## Try It Offline (10 Seconds)
 
-Bright Data integration is optional; the demo runs offline. Requires Python 3.11 or newer on Linux.
+[Bright Data](https://brightdata.com) integration is optional; the demo runs offline. Requires Python 3.11 or newer on Linux.
 
 ```bash
 python3 -m competitor_offer_decoder --version
@@ -28,8 +28,6 @@ That writes all three outputs. For the invented fixture: North's annual base is 
 The fixture is invented, uses `example.com`, and makes no network request.
 
 ## Install And Test
-
-Installed CLI:
 
 ```bash
 python3 -m venv .venv
@@ -108,7 +106,7 @@ A negative example such as `From USD 10 per user/month, billed annually.` produc
 
 ## Offline Provider Import
 
-An already authorized **Bright Data Web Unlocker API** Markdown export can be normalized without HTTP:
+An already authorized **[Bright Data](https://brightdata.com) Web Unlocker API** Markdown export can be normalized without HTTP:
 
 ```bash
 python3 -m competitor_offer_decoder import-provider fixtures/provider-page.md \
@@ -121,9 +119,9 @@ python3 -m competitor_offer_decoder import-provider fixtures/provider-page.md \
 
 The resulting source is labeled `operator_supplied`; the command does not certify where the file came from. Add it explicitly with `analyze ... --sources /tmp/vendor.library.json`. Duplicate source IDs are rejected.
 
-## Bright Data Integration (Optional)
+## [Bright Data](https://brightdata.com) Integration (Optional)
 
-Manifest planning and the **Bright Data Web Unlocker API** adapter are included, but production live collection is disabled in version 0.1.0: current official documentation provides no verified request option to disable target-site redirects and no response field that identifies the final target URL, so the transport fails closed before dispatch. Offline import and injected local transports remain usable.
+Manifest planning and the **[Bright Data](https://brightdata.com) Web Unlocker API** adapter are included, but production live collection is disabled in version 0.1.0: current official documentation provides no verified request option to disable target-site redirects and no response field that identifies the final target URL, so the transport fails closed before dispatch. Offline import and injected local transports remain usable.
 
 Plan first — no credential read, no request:
 
@@ -131,7 +129,7 @@ Plan first — no credential read, no request:
 python3 -m competitor_offer_decoder collect fixtures/manifest.synthetic.json --out /tmp/library.json --dry-run
 ```
 
-The plan includes the non-secret `POST` method, pinned API endpoint, `country`, `format`, `data_format`, and timeout, and states that the API key and zone are omitted. A future live path additionally needs an existing Bright Data key and zone, a manifest of exact approved URLs (at most four companies), and a separate approval JSON matching the manifest hash, expiry, exact URL set, allowances, and operator attestations.
+The plan includes the non-secret `POST` method, pinned API endpoint, `country`, `format`, `data_format`, and timeout, and states that the API key and zone are omitted. A future live path additionally needs an existing [Bright Data](https://brightdata.com) key and zone, a manifest of exact approved URLs (at most four companies), and a separate approval JSON matching the manifest hash, expiry, exact URL set, allowances, and operator attestations.
 
 Documentation reviewed 2026-10-05: [REST unlock-website reference](https://docs.brightdata.com/api-reference/rest-api/unlocker/unlock-website.md), [features guide](https://docs.brightdata.com/products/web-unlocker/features.md), and [introduction](https://docs.brightdata.com/products/web-unlocker/introduction.md).
 
