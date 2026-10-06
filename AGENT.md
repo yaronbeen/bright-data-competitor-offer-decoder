@@ -47,6 +47,7 @@ CLI failures must remain fixed structured JSON; validate object/list/member type
 | 2026-10-05 | Publish only the approved core to yaronbeen/competitor-offer-decoder | All core gates are clear; separately reviewed skills stay out, and live collection stays disabled. |
 | 2026-10-05 | Rename the owned repository to yaronbeen/bright-data-competitor-offer-decoder | Explicit user requirement to mention Bright Data in repository names supersedes the repository portion of the earlier neutral-name proposal. Package/CLI names and independent non-affiliation wording remain unchanged. |
 | 2026-10-05 | Publish the separately approved offer-clarity-wedge bundle and exact README snippet | Skeptic, automation, and brand reviewers all SHIP, including prefixed repository naming. Add portable Markdown only through a normal new commit; keep runtime, package/CLI, provider gates, and private artifacts unchanged. |
+| 2026-10-05 | Rewrite README top copy in direct-response style | User directive: lead with the buying problem and benefits (Hook -> What You Get -> Try It -> Install And Test); remove non-affiliation, qualifier-dump, and status-list paragraphs; keep one short honest "Bright Data integration is optional" line. Code, tests, fixtures, package, and approved skill files unchanged; the reviewed skill README section stays verbatim. |
 
 ## Runbook / Operations
 

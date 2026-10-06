@@ -1,34 +1,33 @@
 # Competitor Offer Decoder
 
-Public repository: [yaronbeen/bright-data-competitor-offer-decoder](https://github.com/yaronbeen/bright-data-competitor-offer-decoder). Package and CLI name remain `competitor-offer-decoder`. This is an independent project, not an official Bright Data repository. No trademark permission or affiliation is implied.
+## The $10 seat is never $10.
 
-**The cheapest headline price may not buy the thing you need.**
+$600 a year is not $50 a month — but that is exactly the comparison most buyers never finish. Vendors quote whichever number looks smaller; the real commitment hides in the billing cadence, the inclusions, and the silence.
 
-Competitor Offer Decoder turns selected pricing-page statements into a cited scenario worksheet. For the invented five-user fixture, North's annual base is `USD 600.00` and explicitly includes CSV export. West's lower `USD 480.00` base explicitly excludes it. Harbor's `USD 720.00` base does not state whether export is included, so the overall report is `needs_review` and proposes the editorial check: `State whether CSV export is included.` It does not name a winner.
+Competitor Offer Decoder turns your offer, three competitors, and one customer scenario into a cited worksheet: the true annual commitment, what's included, what's excluded, and where the terms are silent.
 
-```text
-North / Team
-  monthly equivalent: 50.00 (comparison only)
-  annual base due:     600.00
-  CSV export:          explicitly included
-  declared checks:     meets
+## What You Get
 
-West / Team
-  annual base due:     480.00
-  CSV export:          explicitly excluded
-  declared checks:     fails
-```
+- **The number you actually pay.** Billing units are normalized honestly: `USD 600.00/year` sits next to a `USD 50.00` monthly comparison that is clearly labeled comparison-only. No silent conversion between monthly and annual.
+- **Included, excluded, or silent — never guessed.** Every selected term is marked `explicitly_included`, `explicitly_excluded`, or `not_stated`. If the page didn't say it, the report doesn't either.
+- **Unknowns stay unknown.** Unresolved price, billing, inclusion, and scope evidence is flagged as a readiness issue instead of smoothed over. No invented winner, no cheapest-vendor verdict.
+- **Every claim cites its source.** Each price and inclusion statement points to an exact source block, so you can check it yourself.
+- **A worksheet you can hand to anyone:** deterministic `report.json`, readable `offers.md`, and fixed-column `offers.csv`.
 
-The useful artifact is a deterministic JSON report plus readable Markdown and fixed-column CSV. Every extracted price, minimum, and inclusion statement points to an exact source block. Unknowns remain unknown.
+## Try It Offline (10 Seconds)
 
-## Offline Quickstart
-
-Requires Python 3.11 or newer on Linux. Identity-preserving output commits use Linux `renameat2(RENAME_EXCHANGE)` and fail closed when atomic exchange is unavailable. The fixture is invented, uses `example.com`, needs no key, and makes no network request.
+Bright Data integration is optional; the demo runs offline. Requires Python 3.11 or newer on Linux.
 
 ```bash
 python3 -m competitor_offer_decoder --version
 python3 -m competitor_offer_decoder analyze fixtures/demo.json --out-dir /tmp/competitor-offer-decoder-demo
 ```
+
+That writes all three outputs. For the invented fixture: North's annual base is `USD 600.00` and CSV export is explicitly included. West's lower `USD 480.00` base explicitly excludes it. Harbor's `USD 720.00` base never says whether export is included, so the report stays `needs_review` and hands you the question worth asking: `State whether CSV export is included.`
+
+The fixture is invented, uses `example.com`, and makes no network request.
+
+## Install And Test
 
 Installed CLI:
 
@@ -38,7 +37,15 @@ python3 -m venv .venv
 .venv/bin/competitor-offer-decoder analyze fixtures/demo.json --out-dir /tmp/competitor-offer-decoder-installed
 ```
 
-Outputs are `report.json`, `offers.md`, and `offers.csv`. Existing files are not overwritten unless `--overwrite` is supplied. A validation-only run writes nothing:
+Full test suite:
+
+```bash
+python3 -m pip install setuptools==81.0.0 -r requirements-dev.lock
+python3 -m pip install --no-deps -e .
+python3 -m pytest -q
+```
+
+Existing outputs are never overwritten unless `--overwrite` is supplied, and a validation-only run writes nothing:
 
 ```bash
 python3 -m competitor_offer_decoder analyze fixtures/demo.json --out-dir /tmp/no-output --dry-run
@@ -114,63 +121,35 @@ python3 -m competitor_offer_decoder import-provider fixtures/provider-page.md \
 
 The resulting source is labeled `operator_supplied`; the command does not certify where the file came from. Add it explicitly with `analyze ... --sources /tmp/vendor.library.json`. Duplicate source IDs are rejected.
 
-## Optional Bright Data Retrieval
+## Bright Data Integration (Optional)
 
-Manifest planning and the Web Unlocker API adapter are included, but **production live collection is disabled in version 0.1.0**. Current official documentation does not provide a verified request option to disable target-site redirects or a response field/header that identifies the final target URL. Accepting returned content would therefore risk attributing redirected content to the operator-approved URL. The production transport fails closed before dispatch. Offline import and injected local transports remain usable.
+Manifest planning and the **Bright Data Web Unlocker API** adapter are included, but production live collection is disabled in version 0.1.0: current official documentation provides no verified request option to disable target-site redirects and no response field that identifies the final target URL, so the transport fails closed before dispatch. Offline import and injected local transports remain usable.
 
-Prerequisites:
-
-- Existing Bright Data API access and an existing Web Unlocker zone.
-- `BRIGHT_DATA_API_KEY` and `BRIGHT_DATA_WEB_UNLOCKER_ZONE` in the process environment.
-- A manifest listing exact approved page URLs. It permits at most four unique `company_id` values, four offer pages, and four terms pages, with one page of each role per company. If omitted for compatibility, `company_id` deterministically defaults to `source_id` and still counts toward the four-company cap.
-- A separate approval JSON matching the manifest SHA-256, expiry, the exact set of planned URLs with no extras, request allowance, retention allowance, and three operator attestations.
-- Explicit target permission and account-budget review by the operator.
-
-Plan first, with no credential read and no request:
+Plan first — no credential read, no request:
 
 ```bash
 python3 -m competitor_offer_decoder collect fixtures/manifest.synthetic.json --out /tmp/library.json --dry-run
 ```
 
-That manifest is invented and exists only to show a zero-request plan. The plan includes the non-secret `POST` method, pinned API endpoint, `country`, `format`, `data_format`, and timeout; it explicitly states that the API key and zone are omitted.
+The plan includes the non-secret `POST` method, pinned API endpoint, `country`, `format`, `data_format`, and timeout, and states that the API key and zone are omitted. A future live path additionally needs an existing Bright Data key and zone, a manifest of exact approved URLs (at most four companies), and a separate approval JSON matching the manifest hash, expiry, exact URL set, allowances, and operator attestations.
 
-The following live command is intentionally rejected before HTTP in version 0.1.0, even with valid credentials and approval:
-
-```bash
-python3 -m competitor_offer_decoder collect manifest.json \
-  --out /tmp/library.json \
-  --live --accept-charges --approval approval.json
-```
-
-Do not remove that fail-closed gate until current official documentation or an independently reviewed response contract provides trustworthy final-target attribution. Analyze, import, and collection outputs use exclusive destination claims, sidecar locks, and inode verification before and after commit; a swapped destination is rejected. Multi-artifact analysis retains displaced originals through two-phase finalization and prepares recovery copies before deleting staged backups. Rollback continues across outputs; if a restore fails, the CLI preserves the last recovery artifact and reports it with `recovery_required`, including an uncertainty flag even when no path can be confirmed. Failure pruning recovery copies after successful output commit is surfaced as `recovery_cleanup_warning`. One centralized URL validator handles direct analysis sources, appended libraries, offline imports, and live manifests. It rejects every query string before persistence, so query values cannot reach report JSON, Markdown, CSV, plans, libraries, or receipts. Injected-transport collection enforces the retained-record allowance before each request and while retaining. A successful job followed by a provider failure produces a truthful partial receipt. The application performs **zero API retries**: one planned job produces at most one application request. Bright Data may internally retry work while servicing that single request; those provider internals are not additional client requests and are not controlled or counted by this application. The manifest `timeout_seconds` is configurable from `180` to `300`, defaults to `180`, and a post-dispatch timeout remains `completion_unknown`; do not immediately retrigger it. The local call cap is not a provider spending cap. Response-size checks cannot undo provider work. This page-only project does not support SERP, dataset jobs, or snapshot resume.
-
-Documentation reviewed on 2026-10-05: the current [REST unlock-website reference](https://docs.brightdata.com/api-reference/rest-api/unlocker/unlock-website.md), [features guide](https://docs.brightdata.com/products/web-unlocker/features.md), and [introduction](https://docs.brightdata.com/products/web-unlocker/introduction.md). Their documented request properties do not include a target-redirect control, and their documented response does not establish a final target URL. No option was invented.
+Documentation reviewed 2026-10-05: [REST unlock-website reference](https://docs.brightdata.com/api-reference/rest-api/unlocker/unlock-website.md), [features guide](https://docs.brightdata.com/products/web-unlocker/features.md), and [introduction](https://docs.brightdata.com/products/web-unlocker/introduction.md).
 
 ## Privacy And Safety
 
-Analysis and generated files stay local. Provider normalizers retain only the allowlisted source fields and do not save raw provider response metadata. Injected and fixture transports always produce `synthetic_fixture` provenance. Only the current in-memory production transport invocation can produce `bright_data_transport`; raw analysis input cannot assert it. Before writing a collection library, the CLI downgrades that invocation-local marker to `operator_claimed_bright_data`. Imported legacy `bright_data` fields are downgraded the same way. A matching receipt does not authenticate provider origin: local receipts can be edited, so even a matching job is only a self-asserted retrieval claim. Production collection is currently fail-closed before dispatch. `operator_claimed_bright_data` does not establish that Bright Data retrieved the source, nor authorship, truth, verification, endorsement, completeness, or ownership of target content. This is metadata minimization, not anonymization: page text can still contain names, contact details, or sensitive information. Inspect excerpts before sharing and remove private reports when no longer needed.
+Analysis and generated files stay local; no telemetry is included. Provider normalizers keep only allowlisted source fields, and injected or fixture transports always produce `synthetic_fixture` provenance. `bright_data_transport` is scoped to the current in-memory production invocation and is downgraded to `operator_claimed_bright_data` on export or import; a matching receipt is still a self-asserted retrieval claim, not authentication. Output commits use exclusive destination claims and identity-checked atomic exchange; a raced destination is rejected, and rollback preserves originals or reports `recovery_required` with recovery paths. This is metadata minimization, not anonymization: page text can contain names or sensitive details, so inspect excerpts before sharing.
 
-Central URL validation rejects any raw `@` in the URL authority (including empty userinfo), percent-encoded authority components, credentials, fragments, IP literals, local/reserved names, non-443 ports, and every query string for analysis sources, imported sources, and live targets. These syntax checks do not prove public DNS resolution, defeat rebinding, establish legal permission, or guarantee target safety. Operators remain responsible for source rights, target terms, retention, account charges, and publication decisions. No telemetry is included.
+Central URL validation rejects raw `@` authorities, percent-encoded authority components, credentials, fragments, IP literals, local/reserved names, non-443 ports, and every query string across analysis sources, imported sources, and live targets. Operators remain responsible for source rights, target terms, retention, account charges, and publication decisions.
 
-## Differentiation And Limits
+## How It's Different
 
-The nearest common alternative is a pricing-page tracker that records changing numbers or exports AI-extracted fields to a spreadsheet. This project instead answers a narrower question: for one declared quantity, billing preference, unit, and required feature, what can the selected text support? Its heading-scoped joins, Decimal arithmetic, commitment distinction, and exact citations are local deterministic logic. This comparison describes scope, not universal novelty or superiority.
+A pricing-page tracker records changing numbers; a spreadsheet of AI-extracted fields still needs a human to interpret what those numbers commit you to. This tool answers one narrow question: for one declared quantity, billing preference, unit, and required feature, what can the selected text actually support?
 
-The output is not exhaustive market research, a checkout quote, tax advice, purchase eligibility, a price guarantee, or a completeness claim. Literal grammar can miss semantically equivalent wording. Selected pages may be stale, partial, personalized, or unavailable. There is no LLM, fuzzy matching, hidden API, auto-discovery, ranking, or universal cheapest-vendor conclusion.
+Its heading-scoped joins, Decimal arithmetic, commitment distinction, and exact citations are local deterministic logic — the comparison never leaves your machine, and no LLM decides it.
 
-## Testing And Status
+Literal grammar can miss semantically equivalent wording, and selected pages can be stale, partial, or personalized. The report keeps unknowns visible and cites every extracted statement so you can judge the source yourself.
 
-```bash
-python3 -m pip install setuptools==81.0.0 -r requirements-dev.lock
-python3 -m pip install --no-deps -e .
-python3 -m pytest -q
-```
-
-- Offline, security, QA, and brand contracts: verified locally on 2026-10-05 with 175 passing tests, including failures immediately after a successful path exchange, empty-userinfo rejection, recovery failures, and provenance disclosure regressions.
-- Fixture CLI and deterministic artifacts: verified locally.
-- Real urllib redirect/timeout behavior: verified against local loopback HTTP servers; no external request was made.
-- Live Bright Data retrieval: deliberately disabled pending trustworthy final-target attribution.
-- Core release gates: QA SHIP, security SHIP, and unchanged prior brand SHIP, with independent corrected-source and exact-wheel execution PASS (175 tests each). Core publication is authorized; this does not verify live provider compatibility.
+## Exit Codes And Troubleshooting
 
 Exit code `0` means valid output or plan, including honest business unknowns. `2` means invalid input, flags, or filesystem configuration. `3` means provider/transport failure or completion unknown. `4` means a saved collection receipt is partial or pending. Argparse, missing-file, malformed JSON/object, invalid UTF-8, filesystem, and provider errors use fixed structured JSON messages that do not echo arguments, paths, source values, provider bodies, exception details, or credentials.
 
@@ -180,5 +159,3 @@ Troubleshooting:
 - `output exists`: choose a new directory or intentionally add `--overwrite`.
 - approval failure: regenerate the manifest hash and confirm expiry, exact URLs, allowances, attestations, key, and zone before any live attempt.
 - `response_contract_mismatch`: retain the receipt and review the current provider response documentation; do not add an unreviewed fallback parser.
-
-Uses Bright Data for optional public-data retrieval. Analysis and decisions are local application logic. Not affiliated with or endorsed by Bright Data.
