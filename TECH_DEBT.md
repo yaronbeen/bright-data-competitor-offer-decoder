@@ -2,22 +2,27 @@
 
 ## P0 (Next Session)
 
-- Keep production live collection disabled until current official documentation or an independently reviewed provider response contract supplies trustworthy final-target attribution. Authorization and a spend ceiling remain separately required for any future smoke test.
+- None. User-supplied final reviews and explicit publication authorization clear the skills-only release gate. Missing competitor prices and currency remain P1, not fabricated release evidence.
 
 ## P1 (This Week)
 
-- Validate installed wheel fixture data-file locations across Python 3.11 and 3.12 in a separate packaging check; the successful remote CI verifies editable installation and pytest, not wheel data-file placement.
+- The external exercise's numeric competitor comparison remains PARTIAL because a paid amount and currency code are unresolved. Keep them unknown; a future collection needs new authorization, not an automatic retry for a PASS. This is not an edit blocker or justification for mock prices.
 
 ## P2 (When Convenient)
 
-- Consider a public JSON Schema only if it can exactly preserve the stricter application constraints and error behavior.
-- Refresh immutable CI action pins in a separately reviewed update to remove the hosted runner's Node.js 20 deprecation warning; current Python 3.11/3.12 jobs pass under its Node.js 24 override.
+- None for the small skills-only scope.
 
 ## P3 (Nice To Have)
 
-- Add a manually maintained changelog after the first reviewed release.
+- None. Do not reintroduce an application, mock datasets, or a report schema.
 
 ## Resolved Items
+
+- 2026-10-07: User reports three final reviews APPROVE and the targeted exact fee-clause review SHIP, and explicitly authorizes publication of this skills-only repository. Retain the reviewed product bytes, use normal hooks, and record actual public verification in the latest handover. This gate does not upgrade the real-data PARTIAL result.
+
+- 2026-10-06: Received the independent bounded real-data offer result (PARTIAL), clarified billed-period arithmetic/missing-price/currency/discount-conflict rules without new collection, and kept all source evidence external at `/home/yaron/.claude/data/brightdata-drafts/2026-10-06-brightdata-real-business-validation.md`. Top-level release review remains separate.
+
+- 2026-10-06: Retired application-specific debt with the explicitly authorized retirement of the Python product, synthetic fixtures, release records, and Python CI. Historical resolutions below remain as history, not current run instructions. Git history and private ignored local files are preserved.
 
 - 2026-10-05: Separate Offer skill/README publication gate cleared by user-supplied skeptic SHIP, automation SHIP, and brand SHIP, including Bright Data-prefixed repository names. The five reviewed Markdown/manifest files may be published in a normal new commit with the exact README snippet; no runtime or package/CLI changes are authorized or needed.
 - 2026-10-05: Renamed the existing owned repository in place to `yaronbeen/bright-data-competitor-offer-decoder` per the explicit user naming correction. Repository ID `1406241544`, public visibility, `main`, history, and prior CI runs are preserved; no duplicate or deletion. Origin and current public links are updated. Package/CLI names, runtime, and independent non-affiliation wording remain unchanged.

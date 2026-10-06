@@ -1,30 +1,28 @@
 # Competitor Offer Decoder
 
-Compare what your offer and competitors' pages actually promise for one buyer scenario.
+A monthly headline price can hide an annual commitment. Compare what your offer and up to three competitors actually promise for one buying scenario.
 
-Your agent collects the selected pricing and terms pages with [Bright Data](https://brightdata.com), then uses the bundled skill to turn them into a comparison you can check.
+Your agent collects the selected pricing and terms pages through [Bright Data](https://brightdata.com), then separates supported base costs from fees and conditions that still need checking. Silence is an unknown, not an exclusion.
 
 ## What You Get
 
-- A cited cost-and-inclusion worksheet, keeping billing commitments separate from monthly comparisons.
-- Supported contrasts and positioning claims that still need evidence.
-- One question to clarify your own offer before writing new sales copy.
+- A cited base-cost comparison with payment cadence and commitment shown separately.
+- Explicit inclusions, exclusions, and unanswered terms for each offer.
+- One defensible positioning contrast or question to clarify your own offer.
 
 ## Give This To Your Agent
 
 ```text
-Compare my company [name] with [up to three competitor names]. For each,
-use [pricing/terms URLs, one to three plan names, and the page sections
-I select as offer or terms]. Buyer scenario: [quantity and unit,
-monthly/annual/either billing, required feature]. Collect only those
-pages and sections with my configured Bright Data scraper or MCP,
-then use offer-clarity-wedge. Cite exact passages and capture dates;
-keep missing terms unknown, without choosing a winner. Ask for missing
-selections or a Bright Data export if collection is unavailable.
+Use offer-clarity-wedge. My offer is [own pricing and terms URLs]. Compare
+it with [up to three competitors' pricing and terms URLs] for [quantity,
+unit, required feature, and billing preference]. Collect those pages
+through my configured Bright Data tools. Compare base costs only, show
+billing commitments, cite actual rates. Record observed fees separately
+from base costs; keep unobserved fees and missing terms unknown.
+Return one supported contrast or own-offer clarity question,
+not a universal winner. If Bright Data is not connected, ask me to connect
+it and stop. Do not purchase anything or change our prices.
 ```
 
-Skill: [offer-clarity-wedge](skills/offer-clarity-wedge/SKILL.md).
-
-In the [checked example (invented data)](docs/skills/offer-clarity-wedge-example.md), Harbor's page never says whether CSV export is included. The memo asks for clarification instead of turning that silence into a product promise.
-
-[Technical guide](docs/technical-guide.md)
+Read the [offer-clarity-wedge skill](skills/offer-clarity-wedge/SKILL.md).
+Connect your agent using the [official Bright Data MCP setup](https://docs.brightdata.com/products/mcp-server/remote/quickstart) or this [short connection guide](docs/technical-guide.md).

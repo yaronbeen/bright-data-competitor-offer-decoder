@@ -1,5 +1,20 @@
 # Learnings
 
+## Current Skills-Only Workflow - 2026-10-06
+
+- The user explicitly retired the Python product in favor of one simple Bright Data-backed business skill. Historical application decisions below are not current operating instructions.
+- Source evidence must be retrieved through configured Bright Data tools in the current agent session. Missing access means connect and stop, not use an export, mock, or another provider.
+- Base payment, advertised monthly equivalent, payment cadence, and commitment term are different facts. Show the actual rate and formula; keep additional fees and eligibility conditions separate.
+- Unstated inclusions are unknown, not exclusions. A scenario-specific supported contrast does not establish a market-wide winner or unique advantage.
+- Official MCP setup and tools documentation was fetched on 2026-10-06. `chub` was unavailable, so current official pages were read directly. Static documentation checks do not establish live functionality.
+
+- Independent real-data exercise: PARTIAL. Prefer an explicit billed-period amount with supported quantity rules; keep blank paid prices unknown rather than zero. An observed currency symbol is not an ISO currency code, and conflicting discounts cannot establish an uncaptured monthly rate.
+- Exact capture instants/timezones can be unavailable. Preserve actual observation bounds and source update statements without inventing precision or verified update history. Public validation examples are not user business facts.
+- External evidence remains at `/home/yaron/.claude/data/brightdata-drafts/2026-10-06-brightdata-real-business-validation.md`. No source excerpts or validation dataset were copied into the repository, and no calls were repeated for the rule clarification.
+- The external addendum reapplied the final skill method to the same actual Bright Data responses, with zero additional calls. It produced the allowed partial comparison and clarity question, not a validated competitor amount, resolved ISO currency, checkout total, or universal winner.
+
+## Historical Application Learnings
+
 - Parsed credentials can be empty even when raw URL authority contains `@`; reject the delimiter in raw `netloc` instead of testing parsed username/password truthiness.
 - Rollback should contain all failures at the per-reservation boundary, preserve remaining recovery copies, and continue attempting restoration for other destinations.
 
